@@ -1,5 +1,7 @@
 **ZeroMQ with VisualStudio 2015**
 
+* 시스템 - 환경변수 - 유저 환경 변수에 아래 변수를 설정해야 함
+
     ZMQ_HOME:        libzmq 소스 위치
     ZMQ_CPP_HEADERS: cppzmq 소스 위치
     ZMQ_LIBS:        libzmq 빌드 결과 위치 (bin 폴더)
