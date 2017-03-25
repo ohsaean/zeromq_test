@@ -35,11 +35,11 @@
 * copy $(ZMQ_LIBSODIUM)\$(Platform)\$(Configuration)\$(DefaultPlatformToolset)\dynamic\libsodium.dll $(OutputPath)
 
 
-**프로젝트 속성 - 구성 속성 - VC++ 디렉터리 - 포함 디렉터리
+**프로젝트 속성 - 구성 속성 - VC++ 디렉터리 - 포함 디렉터리**
 
 * $(BOOST_HOME) 추가
 
 
-**프로젝트 속성 - 구성 속성 - VC++ 디렉터리 - 라이브러리 디렉터리
+**프로젝트 속성 - 구성 속성 - VC++ 디렉터리 - 라이브러리 디렉터리**
 
 * $(BOOST_LIBS)\$(Platform)\lib 추가
