@@ -3,13 +3,10 @@
 
 #include "stdafx.h"
 
-
-int main()
+void* worker(zmq::context_t& context)
 {
-	//  Prepare our context and socket
-	zmq::context_t context(1);
-	zmq::socket_t socket(context, ZMQ_REQ);
 
+	zmq::socket_t socket(context, ZMQ_REQ);
 	std::cout << "Connecting to hello world server..." << std::endl;
 	socket.connect("tcp://localhost:5555");
 
@@ -25,6 +22,19 @@ int main()
 		socket.recv(&reply);
 		std::cout << "Received World " << request_nbr << std::endl;
 	}
-	return 0;
+
+}
+
+int main()
+{
+	boost::thread_group threads; // 1
+
+	zmq::context_t context(1);
+
+	for (int thread_nbr = 0; thread_nbr != 5; thread_nbr++) {
+		threads.create_thread(boost::bind(&worker, boost::ref(context)));
+	}
+
+	threads.join_all();
 }
 
